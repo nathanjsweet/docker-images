@@ -1,4 +1,5 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk update
-RUN apk add curl iperf3 bind-tools wget busybox-extras jq apache2-utils
+ADD netperf_scripts /root/netperf_scripts
+RUN apt update -y
+RUN apt install -y jq netperf net-tools tuned psmisc
